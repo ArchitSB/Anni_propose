@@ -11,20 +11,49 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow: hidden;
+  /* Prevent text selection for better UX */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 #root {
   width: 100vw;
   height: 100vh;
+  /* Ensure proper sizing on mobile browsers */
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
 }
 
-/* Glassmorphism styles */
+/* Glassmorphism styles - responsive */
 .glass-card {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: 0 8px 32px 0 rgba(255, 105, 180, 0.37);
+  /* Ensure content doesn't overflow on small screens */
+  max-width: 100%;
+}
+
+/* Responsive typography base */
+html {
+  font-size: 16px; /* Base font size */
+}
+
+/* Media query for smaller laptops (13-14 inch) */
+@media screen and (max-width: 1366px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+/* Media query for very small screens */
+@media screen and (max-width: 1024px) {
+  html {
+    font-size: 14px;
+  }
 }
 
 /* Custom scrollbar */
@@ -39,4 +68,11 @@ body {
 ::-webkit-scrollbar-thumb {
   background: rgba(255, 105, 180, 0.5);
   border-radius: 5px;
+}
+
+/* Ensure images are responsive */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }

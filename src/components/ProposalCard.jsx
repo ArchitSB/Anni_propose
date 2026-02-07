@@ -18,11 +18,13 @@ export default function ProposalCard({ onYesClick }) {
       }}
       style={{
         textAlign: 'center',
-        padding: '60px 80px',
+        padding: 'clamp(40px, 8vw, 80px) clamp(30px, 6vw, 80px)',
         borderRadius: '30px',
-        minWidth: '500px',
-        maxWidth: '90vw',
-        position: 'relative',
+        width: '90vw',
+        maxWidth: '800px',
+        minHeight: 'clamp(350px, 60vh, 500px)',
+        position: 'relative', // Container for absolute positioned NO button
+        overflow: 'hidden', // Keep button inside card
       }}
       className="glass-card"
     >
@@ -37,15 +39,16 @@ export default function ProposalCard({ onYesClick }) {
           ease: 'easeInOut',
         }}
         style={{
-          fontSize: '64px',
+          fontSize: 'clamp(36px, 5vw, 56px)', // Responsive: 36px min, 56px max
           fontWeight: '800',
           color: '#ffffff',
-          marginBottom: '20px',
+          marginBottom: 'clamp(15px, 2vh, 20px)',
           textShadow: '0 0 30px rgba(255, 23, 68, 0.8)',
-          letterSpacing: '2px',
+          letterSpacing: '1px',
+          lineHeight: '1.2',
         }}
       >
-        I Love You ❤️
+        Diya, I still choose you ❤️
       </motion.h1>
 
       {/* Subtitle */}
@@ -54,14 +57,16 @@ export default function ProposalCard({ onYesClick }) {
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 1 }}
         style={{
-          fontSize: '28px',
+          fontSize: 'clamp(18px, 2.5vw, 24px)', // Responsive: 18px min, 24px max
           fontWeight: '500',
           color: '#ffcde7',
-          marginBottom: '50px',
-          lineHeight: '1.6',
+          marginBottom: 'clamp(30px, 5vh, 50px)',
+          lineHeight: '1.8',
+          padding: '0 10px', // Prevent text from touching edges on small screens
         }}
       >
-        Will you be my Valentine?
+        It's been one amazing year with you,<br />
+        and I'd love to keep choosing you again and again.
       </motion.p>
 
       {/* Buttons container */}
@@ -71,10 +76,11 @@ export default function ProposalCard({ onYesClick }) {
         transition={{ delay: 1.5, duration: 1 }}
         style={{
           display: 'flex',
-          gap: '30px',
+          gap: 'clamp(15px, 3vw, 30px)', // Responsive gap
           justifyContent: 'center',
           alignItems: 'center',
           position: 'relative',
+          flexWrap: 'wrap', // Allow wrapping on very small screens
         }}
       >
         <YesButton onClick={onYesClick} />

@@ -13,8 +13,8 @@ export default function YesButton({ onClick }) {
       }}
       whileTap={{ scale: 0.95 }}
       style={{
-        padding: '20px 60px',
-        fontSize: '24px',
+        padding: 'clamp(15px, 2vh, 20px) clamp(40px, 5vw, 60px)', // Responsive padding
+        fontSize: 'clamp(18px, 2.5vw, 24px)', // Responsive font size
         fontWeight: '700',
         color: '#ffffff',
         background: 'linear-gradient(135deg, #ff1744 0%, #ff4569 100%)',
@@ -25,6 +25,7 @@ export default function YesButton({ onClick }) {
         position: 'relative',
         overflow: 'hidden',
         transition: 'all 0.3s ease',
+        minWidth: 'fit-content', // Ensure button doesn't shrink too much
       }}
     >
       <motion.span
@@ -64,7 +65,7 @@ export default function YesButton({ onClick }) {
           background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)',
         }}
       />
-      <span style={{ position: 'relative', zIndex: 1 }}>Yes! 💖</span>
+      <span style={{ position: 'relative', zIndex: 1 }}>Always Yes 💖</span>
     </motion.button>
   );
 }

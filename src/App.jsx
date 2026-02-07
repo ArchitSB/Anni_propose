@@ -49,7 +49,7 @@ function App() {
         heartCount={heartCount}
       />
 
-      {/* Centered UI Container */}
+      {/* Centered UI Container - Responsive */}
       <div
         style={{
           position: 'fixed',
@@ -62,6 +62,7 @@ function App() {
           alignItems: 'center',
           pointerEvents: 'none',
           zIndex: 10,
+          padding: '20px', // Ensure content doesn't touch screen edges
         }}
       >
         {/* Proposal Card with glassmorphism */}
