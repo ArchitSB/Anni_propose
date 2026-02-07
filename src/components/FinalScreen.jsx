@@ -45,8 +45,7 @@ export default function FinalScreen() {
           backdropFilter: 'blur(20px)',
           border: '2px solid rgba(255, 255, 255, 0.2)',
           boxShadow: '0 8px 32px 0 rgba(255, 23, 68, 0.5)',
-          maxWidth: '90vw',
-          width: '100%',
+          width: '90vw',
           maxWidth: '900px', // Limit max width for large screens
         }}
       >
