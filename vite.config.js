@@ -4,4 +4,28 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  build: {
+    // Optimize for production
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true, // Remove console logs in production
+        drop_debugger: true,
+      },
+    },
+    // Chunk size warnings
+    chunkSizeWarningLimit: 1000,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // Split Three.js and React Three Fiber into separate chunks
+          'three-vendor': ['three', '@react-three/fiber', '@react-three/drei', '@react-three/postprocessing'],
+          'react-vendor': ['react', 'react-dom'],
+          'framer-motion': ['framer-motion'],
+        },
+      },
+    },
+  },
+  // Ensure proper base path for deployment
+  base: './',
 })

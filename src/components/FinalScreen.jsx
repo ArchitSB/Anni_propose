@@ -116,6 +116,11 @@ export default function FinalScreen() {
           <img 
             src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDZ0YzN6dTBkZGJhY2FvbHM4ZDJsYzF6eDJhbGRiYzN6Ym9qZHZ6YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/KZQlfylo73AMU/giphy.gif"
             alt="Celebration"
+            loading="lazy"
+            onError={(e) => {
+              // Fallback if GIF fails to load
+              e.target.style.display = 'none';
+            }}
             style={{
               width: '100%',
               height: 'auto',
